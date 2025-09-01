@@ -1,0 +1,33 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-field">
+    <label for="name">Name</label>
+    <input id="name" pInputText formControlName="name" />
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input id="email" pInputText formControlName="email" />
+  </div>
+
+  <div class="form-field">
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" formControlName="dob" class="p-inputtext" />
+  </div>
+
+  <div class="form-field">
+    <label for="courses">Courses</label>
+    <p-multiSelect
+      id="courses"
+      formControlName="courses"
+      placeholder="Select Courses"
+      optionLabel="name"
+      optionValue="name"
+      [options]="[{name: 'Mathematics'}, {name: 'History'}, {name: 'Physics'}, {name: 'Computer Science'}]">
+    </p-multiSelect>
+  </div>
+
+  <div class="form-actions">
+    <p-button label="Cancel" styleClass="p-button-secondary" (click)="onCancel()"></p-button>
+    <p-button label="Save" type="submit" [disabled]="studentForm.invalid"></p-button>
+  </div>
+</form>
