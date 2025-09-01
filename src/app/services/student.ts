@@ -24,4 +24,8 @@ export class StudentService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.patch<Student>(url, { courses: courses });
   }
+  deleteStudent(id: number): Observable<void> {
+  const url = `${this.apiUrl}/${id}`;
+  return this.http.delete<void>(url);
+  }
 }
