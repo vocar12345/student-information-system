@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// Corrected path below to match your filename
 import { StudentService } from '../../services/student'; 
 import { Student } from '../../models/student.model';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
 
 // PrimeNG Modules
 import { TableModule } from 'primeng/table';
@@ -10,9 +11,9 @@ import { TableModule } from 'primeng/table';
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [CommonModule, TableModule],
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
+  imports: [CommonModule, TableModule, ToolbarModule, ButtonModule],
 })
 export class OverviewComponent implements OnInit {
   students: Student[] = [];

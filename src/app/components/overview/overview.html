@@ -1,4 +1,14 @@
 <div class="card">
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <p-button 
+        label="New Student" 
+        icon="pi pi-plus" 
+        styleClass="p-button-success">
+      </p-button>
+    </div>
+  </p-toolbar>
+
   <p-table 
     [value]="students" 
     [paginator]="true" 
@@ -16,7 +26,7 @@
       <tr>
         <td>{{ student.name }}</td>
         <td>{{ student.email }}</td>
-        <td>{{ student.dob }}</td>
+        <td>{{ student.dob | date: 'longDate' }}</td>
         <td>{{ student.courses.join(', ') }}</td>
       </tr>
     </ng-template>
