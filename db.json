@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "dob": "1999-05-20",
+      "courses": [
+        "Mathematics",
+        "History"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "dob": "1998-11-15",
+      "courses": [
+        "Physics",
+        "Computer Science"
+      ]
+    }
+  ],
+  "courses": [
+    { "id": 1, "name": "Mathematics" },
+    { "id": 2, "name": "History" },
+    { "id": 3, "name": "Physics" },
+    { "id": 4, "name": "Computer Science" },
+    { "id": 5, "name": "Chemistry" },
+    { "id": 6, "name": "Literature" }
+  ]
+}
