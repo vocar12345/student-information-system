@@ -4,6 +4,8 @@ import { StudentService } from '../../services/student';
 import { Student } from '../../models/student.model';
 import { StudentFormComponent } from '../student-form/student-form';
 
+
+
 // PrimeNG Modules & Services
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -26,7 +28,7 @@ import { ToastModule } from 'primeng/toast';
     ConfirmDialogModule,
     ToastModule
   ],
-  providers: [ConfirmationService, MessageService], // Providers for the services
+  providers: [ConfirmationService, MessageService],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
@@ -51,7 +53,7 @@ export class OverviewComponent implements OnInit {
     });
   }
 
-  // Add Student Methods
+  // --- Add Student Methods ---
   showAddDialog(): void {
     this.displayAddDialog = true;
   }
@@ -61,6 +63,7 @@ export class OverviewComponent implements OnInit {
       next: () => {
         this.getStudents(); 
         this.displayAddDialog = false; 
+        // --- ADDED SUCCESS TOAST ---
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -69,6 +72,7 @@ export class OverviewComponent implements OnInit {
       },
       error: (err) => {
         console.error('Failed to add student', err);
+        // --- ADDED ERROR TOAST ---
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -78,7 +82,7 @@ export class OverviewComponent implements OnInit {
     });
   }
 
-  // Edit Student Methods
+  // --- Edit Student Methods ---
   showEditDialog(student: Student): void {
     this.selectedStudent = student;
     this.displayEditDialog = true;
@@ -92,6 +96,7 @@ export class OverviewComponent implements OnInit {
       next: () => {
         this.getStudents();
         this.displayEditDialog = false;
+        // --- ADDED SUCCESS TOAST ---
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -100,6 +105,7 @@ export class OverviewComponent implements OnInit {
       },
       error: (err) => {
         console.error('Failed to update student', err);
+        // --- ADDED ERROR TOAST ---
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -109,7 +115,7 @@ export class OverviewComponent implements OnInit {
     });
   }
 
-  // Delete Student Method
+  // --- Delete Student Method ---
   confirmDelete(student: Student): void {
     this.confirmationService.confirm({
       message: `Are you sure you want to delete ${student.name}?`,
