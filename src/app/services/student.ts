@@ -14,7 +14,14 @@ export class StudentService {
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(this.apiUrl);
   }
+
   addStudent(student: Omit<Student, 'id'>): Observable<Student> {
     return this.http.post<Student>(this.apiUrl, student);
+  }
+
+  // This is the new method you just added
+  updateStudentCourses(id: number, courses: string[]): Observable<Student> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.patch<Student>(url, { courses: courses });
   }
 }
