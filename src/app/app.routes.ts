@@ -8,6 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'overview',
-    loadComponent: () => import('./components/overview/overview.component').then(c => c.OverviewComponent)
+    // Corrected path below
+    loadComponent: () => import('./components/overview/overview').then(c => c.OverviewComponent)
   }
 ];
