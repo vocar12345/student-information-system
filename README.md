@@ -1,10 +1,10 @@
-#Student Information System
+# Student Information System
 
 
 This project is a simple student information system built as a technical assessment for a frontend developer position. The application allows users to perform basic CRUD (Create, Read, Update, Delete) operations for student records in a clean, modern interface.
 
 
-##Features
+## Features
 
 
 -View All Students: Displays a paginated list of all students in a sortable, responsive table.
@@ -15,7 +15,7 @@ This project is a simple student information system built as a technical assessm
 -Professional UI/UX: Includes loading indicators, toast notifications for user feedback, and a polished, responsive design.
 
 
-##Technologies Used
+## Technologies Used
 
 
 -Angular (v20+, Standalone Components)
@@ -25,13 +25,13 @@ This project is a simple student information system built as a technical assessm
 -SCSS
 
 
-##Setup and Installation
+## Setup and Installation
 
 
 To run this project locally, please follow these steps:
 
 
-###Prerequisites
+### Prerequisites
 
 
 Node.js (v20.x or higher recommended)
