@@ -19,13 +19,15 @@ export class StudentService {
     return this.http.post<Student>(this.apiUrl, student);
   }
 
-  // This is the new method you just added
-  updateStudentCourses(id: number, courses: string[]): Observable<Student> {
+  // Changed id from number to string
+  updateStudentCourses(id: string, courses: string[]): Observable<Student> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.patch<Student>(url, { courses: courses });
   }
-  deleteStudent(id: number): Observable<void> {
-  const url = `${this.apiUrl}/${id}`;
-  return this.http.delete<void>(url);
+
+  // Changed id from number to string
+  deleteStudent(id: string): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
   }
 }
