@@ -87,7 +87,6 @@ import { ToastModule } from 'primeng/toast';
         <div class="p-toolbar-group-start">
           <p-button
             label="New Student"
-            icon="pi pi-plus"
             styleClass="p-button-success"
             (click)="showAddDialog()"
           >
@@ -125,14 +124,12 @@ import { ToastModule } from 'primeng/toast';
             <td>
               <p-button
                 label="Edit"
-                icon="pi pi-pencil"
                 styleClass="p-button-info p-button-sm"
                 (click)="showEditDialog(student)"
               >
               </p-button>
               <p-button
                 label="Delete"
-                icon="pi pi-trash"
                 styleClass="p-button-danger p-button-sm"
                 (click)="confirmDelete(student)"
                 class="ml-2"
