@@ -37,7 +37,7 @@ import { ToastModule } from 'primeng/toast';
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
           padding: 1.5rem;
-          background-color: #f4f5f7; /* Changed background for contrast */
+          background-color: #f4f5f7;
         }
 
         /* --- TABLE HEADER STYLING --- */
@@ -47,31 +47,39 @@ import { ToastModule } from 'primeng/toast';
           text-transform: uppercase;
           font-size: 0.875rem;
           font-weight: 600;
-          border: none; /* Remove header borders */
+          border: none;
         }
 
         /* --- CARD-LIKE TABLE ROW STYLING --- */
         .p-datatable .p-datatable-table {
-          border-collapse: separate; /* Crucial for adding space between rows */
-          border-spacing: 0 0.75rem; /* Horizontal 0, Vertical 0.75rem */
+          border-collapse: separate;
+          border-spacing: 0 0.75rem;
         }
 
         .p-datatable .p-datatable-tbody > tr {
-          background-color: #ffffff; /* Each row is a white card */
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        /* Even rows */
+        .p-datatable .p-datatable-tbody > tr:nth-child(even) {
+          background-color: #eef2f7; /* Soft white-blue */
+        }
+
+        /* Odd rows */
+        .p-datatable .p-datatable-tbody > tr:nth-child(odd) {
+          background-color: #ffffff; /* White */
+        }
 
         .p-datatable .p-datatable-tbody > tr:hover {
-          background-color: #ffffff; /* Keep background white on hover */
-          transform: translateY(-2px); /* Lift the card slightly on hover */
+          transform: translateY(-2px);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         }
 
         .p-datatable .p-datatable-tbody > tr > td {
-          padding: 1.25rem 1.25rem; /* Increased padding for better spacing */
+          padding: 1.25rem 1.25rem;
           vertical-align: middle;
-          border: none; /* Remove all cell borders */
+          border: none;
         }
 
         /* Round the corners of the first cell */
@@ -88,24 +96,24 @@ import { ToastModule } from 'primeng/toast';
 
         /* --- BUTTON OUTLINE FIX --- */
         .p-button:focus {
-          box-shadow: none; /* Removes PrimeNG's default focus shadow */
-          outline: none; /* Removes the browser's default outline */
+          box-shadow: none;
+          outline: none;
         }
 
         /* --- PAGINATOR STYLING --- */
         .p-paginator {
-            .p-paginator-current {
-                order: -1;
-                margin-right: auto;
-            }
-            .p-paginator-prev::before {
-                content: "Prev";
-                margin-right: 0.5rem;
-            }
-            .p-paginator-next::after {
-                content: "Next";
-                margin-left: 0.5rem;
-            }
+          .p-paginator-current {
+            order: -1;
+            margin-right: auto;
+          }
+          .p-paginator-prev::before {
+            content: "Prev";
+            margin-right: 0.5rem;
+          }
+          .p-paginator-next::after {
+            content: "Next";
+            margin-left: 0.5rem;
+          }
         }
 
         .ml-2 {
@@ -260,7 +268,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   // Add Student Methods
   showAddDialog(): void {
-    this.selectedStudent = null; // Ensure form is clear for adding
+    this.selectedStudent = null;
     this.displayAddDialog = true;
   }
 
