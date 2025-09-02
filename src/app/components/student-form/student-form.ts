@@ -66,7 +66,9 @@ import { ButtonModule } from 'primeng/button';
           formControlName="courses"
           optionLabel="name"
           optionValue="name"
-          placeholder="Select Courses">
+          placeholder="Select Courses"
+          appendTo="body"
+          [panelStyle]="{'z-index': 9999}">
         </p-multiSelect>
       </div>
 
@@ -87,7 +89,6 @@ export class StudentFormComponent implements OnInit, OnChanges {
   availableCourses: Course[] = [];
 
   ngOnInit(): void {
-    // We define the form structure and initialize the course list here.
     this.availableCourses = [
       { id: 1, name: "Mathematics" },
       { id: 2, name: "History" },
@@ -106,8 +107,6 @@ export class StudentFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // This method runs when the @Input() student changes.
-    // It pre-fills the form for editing.
     if (changes['student'] && this.student) {
       this.studentForm.patchValue({
         name: this.student.name,
@@ -120,7 +119,6 @@ export class StudentFormComponent implements OnInit, OnChanges {
 
   onSubmit(): void {
     if (this.studentForm.valid) {
-      // getRawValue() includes disabled fields, which we need for the update payload.
       this.formSubmit.emit(this.studentForm.getRawValue());
     }
   }

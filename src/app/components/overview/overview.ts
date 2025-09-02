@@ -65,12 +65,10 @@ import { ToastModule } from 'primeng/toast';
                 order: -1;
                 margin-right: auto;
             }
-            /* Add "Prev" text before the previous arrow */
             .p-paginator-prev::before {
                 content: "Prev";
                 margin-right: 0.5rem;
             }
-            /* Add "Next" text after the next arrow */
             .p-paginator-next::after {
                 content: "Next";
                 margin-left: 0.5rem;
@@ -101,7 +99,7 @@ import { ToastModule } from 'primeng/toast';
         [value]="students"
         [paginator]="true"
         [rows]="20"
-        [rowsPerPageOptions]="[20, 50, 100]"
+        [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
         styleClass="p-datatable-striped"
         [loading]="isLoading"
         [showCurrentPageReport]="true"
@@ -157,7 +155,7 @@ import { ToastModule } from 'primeng/toast';
       header="Add New Student"
       [(visible)]="displayAddDialog"
       [modal]="true"
-      [style]="{ width: '50vw' }"
+      [style]="{ width: '50vw', height: 'auto' }"
       [draggable]="false"
       [resizable]="false"
       (onHide)="selectedStudent = null"
@@ -174,7 +172,7 @@ import { ToastModule } from 'primeng/toast';
       header="Edit Student Courses"
       [(visible)]="displayEditDialog"
       [modal]="true"
-      [style]="{ width: '50vw' }"
+      [style]="{ width: '50vw', height: 'auto' }"
       [draggable]="false"
       [resizable]="false"
       (onHide)="selectedStudent = null"
