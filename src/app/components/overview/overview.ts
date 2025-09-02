@@ -37,7 +37,7 @@ import { ToastModule } from 'primeng/toast';
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
           padding: 1.5rem;
-          background-color: #ffffff;
+          background-color: #f4f5f7; /* Changed background for contrast */
         }
 
         /* --- TABLE HEADER STYLING --- */
@@ -47,18 +47,51 @@ import { ToastModule } from 'primeng/toast';
           text-transform: uppercase;
           font-size: 0.875rem;
           font-weight: 600;
+          border: none; /* Remove header borders */
         }
 
-        /* --- GENERAL TABLE CELL STYLING --- */
-        .p-datatable .p-datatable-tbody > tr > td {
-          padding: 1rem 1.25rem;
-          vertical-align: middle;
+        /* --- CARD-LIKE TABLE ROW STYLING --- */
+        .p-datatable .p-datatable-table {
+          border-collapse: separate; /* Crucial for adding space between rows */
+          border-spacing: 0 0.75rem; /* Horizontal 0, Vertical 0.75rem */
+        }
+
+        .p-datatable .p-datatable-tbody > tr {
+          background-color: #ffffff; /* Each row is a white card */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .p-datatable .p-datatable-tbody > tr:hover {
-            background-color: #f8f9fa; 
+          background-color: #ffffff; /* Keep background white on hover */
+          transform: translateY(-2px); /* Lift the card slightly on hover */
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         }
-        
+
+        .p-datatable .p-datatable-tbody > tr > td {
+          padding: 1.25rem 1.25rem; /* Increased padding for better spacing */
+          vertical-align: middle;
+          border: none; /* Remove all cell borders */
+        }
+
+        /* Round the corners of the first cell */
+        .p-datatable .p-datatable-tbody > tr > td:first-child {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+
+        /* Round the corners of the last cell */
+        .p-datatable .p-datatable-tbody > tr > td:last-child {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+
+        /* --- BUTTON OUTLINE FIX --- */
+        .p-button:focus {
+          box-shadow: none; /* Removes PrimeNG's default focus shadow */
+          outline: none; /* Removes the browser's default outline */
+        }
+
         /* --- PAGINATOR STYLING --- */
         .p-paginator {
             .p-paginator-current {
@@ -74,7 +107,7 @@ import { ToastModule } from 'primeng/toast';
                 margin-left: 0.5rem;
             }
         }
-        
+
         .ml-2 {
           margin-left: 0.5rem;
         }
@@ -99,7 +132,6 @@ import { ToastModule } from 'primeng/toast';
         [paginator]="true"
         [rows]="20"
         [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
-        styleClass="p-datatable-striped"
         [loading]="isLoading"
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
