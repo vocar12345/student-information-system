@@ -299,8 +299,11 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   // Edit Student Methods
   showEditDialog(student: Student): void {
+    // Fix for edit button needing two clicks is here
     this.selectedStudent = student;
-    this.displayEditDialog = true;
+    setTimeout(() => {
+      this.displayEditDialog = true;
+    }, 0);
   }
 
   onStudentUpdated(studentData: Omit<Student, 'id'>): void {
